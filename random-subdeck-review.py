@@ -4,12 +4,9 @@ from aqt.utils import showInfo
 import random
 
 def randomFillRev(self):
-#    showInfo(str(len(self._revDids)))
-    random.shuffle(self._revDids)
+    self._resetRev() # We need to reset the _revDids, so it can pick a random card from all subdecks again.
+    random.shuffle(self._revDids) # Shuffle the deck ids array, so it will pick a random one.
     obj = origFillRev(self)
-#    showInfo(str(len(self._revQueue)))
-#    random.shuffle(self._revQueue)
-#    showInfo(str(len(self._revQueue)))
     return obj
 
 origFillRev = Scheduler._fillRev
